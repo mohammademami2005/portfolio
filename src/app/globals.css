@@ -50,7 +50,7 @@
 }
 
 @layer base {
-  li {
+  body {
     font-family: "Rajdhani", sans-serif;
     font-weight: 600;
     font-style: normal;

@@ -1,11 +1,14 @@
 import Image from "next/image";
 import Header from "./components/header";
+import Home from "./components/home";
 
-export default function Home() {
+export default function Page() {
   return (
     <>
     <Header />
-    <main className="w-full h-[1000vh] bg-neutral-900 "></main>
+    <main className="w-full h-fit">
+      <Home />
+    </main>
     </>
   );
 }
