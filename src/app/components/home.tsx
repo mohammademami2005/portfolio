@@ -14,7 +14,7 @@ export default function Home() {
   const [copied, setCopied] = useState(false);
 
   // refs
-  const text = ` Mohammad Emami`;
+  const text = `A creative and modern Front-End Developer`;
   const homeRef = useRef<HTMLDivElement | null>(null);
   const titleRef = useRef<HTMLHeadingElement | null>(null);
   const subTitleRef = useRef<HTMLParagraphElement | null>(null);
@@ -72,8 +72,6 @@ export default function Home() {
           delay: 0.8,
         }
       );
-
-
     }, homeRef);
 
     return () => ctx.revert();
@@ -101,7 +99,9 @@ export default function Home() {
         }
       );
     });
-    return () => timeLine.kill;
+    return () => {
+      timeLine.kill;
+    };
   }, []);
 
   const handleCopy = async () => {
@@ -126,11 +126,11 @@ export default function Home() {
         className="text-4xl lg:text-6xl font-bold"
         style={{ whiteSpace: "pre" }}
       >
-        Hey, I'm {displayText}
-        <span className="blinkingCursor">|</span>
+        Hey, I'm Mohammad Emami
       </h1>
       <p ref={subTitleRef} className="text-lg lg:text-xl  opacity-80">
-        A creative and modern Front-End Developer
+        {displayText}
+        <span className="blinkingCursor">|</span>
       </p>
       <div className="flex justify-between items-center  p-5 gap-8">
         <button

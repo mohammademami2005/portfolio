@@ -30,8 +30,9 @@ export default function RootLayout({
         className={`  antialiased`}
       >
         <LenisProvider />
-        <GSAPProvider />
+        <GSAPProvider>
         {children}
+        </GSAPProvider>
       </body>
     </html>
   );

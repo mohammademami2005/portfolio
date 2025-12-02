@@ -6,7 +6,7 @@ import Lenis from "lenis";
 import { useEffect } from "react";
 
 gsap.registerPlugin(ScrollTrigger);
-export default function GSAPProvider() {
+export default function GSAPProvider({children}:{children:React.ReactNode}) {
   useEffect(() => {
     const lenis = new Lenis({
       duration: 1.2,
@@ -44,4 +44,5 @@ export default function GSAPProvider() {
       requestAnimationFrame(raf);
     });
   }, []);
+  return <>{children}</>;
 }
