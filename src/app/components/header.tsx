@@ -34,13 +34,13 @@ export default function Header() {
   const [mobileNavVisible, setMobileNavVisible] = useState(false);
   console.log(mobileNavVisible);
   return (
-    <header className="fixed top-0 right-0 w-full h-15  flex justify-end lg:justify-center items-center ">
+    <header className="fixed top-1 right-0 w-full h-15  flex justify-end lg:justify-center items-center z-50">
       <nav
         className={`absolute left-0  duration-500 transition-all w-screen h-screen  ${
           mobileNavVisible
             ? "top-0 opacity-100"
             : "top-[110vh] opacity-0 lg:opacity-100"
-        } mt-[60px] lg:mt-0 lg:top-0 lg:left-0 lg:relative  lg:block lg:w-2/5 lg:h-[90%] lg:bg-black/10 lg:rounded-full backdrop-blur-lg`}
+        } mt-[60px] lg:mt-0 lg:top-0 lg:left-0 lg:relative  lg:block lg:w-2/5 lg:h-[90%] lg:bg-white/10 lg:rounded-full backdrop-blur-md`}
       >
         <ul
           className={`w-full h-full rounded-full  flex flex-col lg:flex-row justify-center gap-5 lg:justify-evenly items-center    `}

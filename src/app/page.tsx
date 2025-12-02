@@ -6,7 +6,7 @@ export default function Page() {
   return (
     <>
     <Header />
-    <main className="w-full h-fit">
+    <main className="w-full h-[500vh]">
       <Home />
     </main>
     </>
