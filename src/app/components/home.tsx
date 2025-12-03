@@ -12,6 +12,7 @@ export default function Home() {
   // states
   const [displayText, setDisplayText] = useState("");
   const [copied, setCopied] = useState(false);
+  const [mounted, setMounted] = useState(false);
 
   // refs
   const text = `A creative and modern Front-End Developer`;
@@ -24,6 +25,7 @@ export default function Home() {
 
   // gsap effects
   useEffect(() => {
+    setMounted(true)
     const ctx = gsap.context(() => {
       // text Animation
       gsap.fromTo(
@@ -84,7 +86,7 @@ export default function Home() {
     let index = 0;
     const timeLine = gsap.timeline({
       repeat: -1,
-      repeatDelay: 0.5,
+      repeatDelay: 0.8,
       onRepeat: () => setDisplayText(""),
     });
 
@@ -119,17 +121,17 @@ export default function Home() {
   return (
     <section
       ref={homeRef}
-      className="w-full h-screen flex flex-col justify-center gap-10 items-center bg-[url(/img/background1.jpg)] bg-cover "
+      className="w-full h-screen flex flex-col justify-center gap-10 items-center "
     >
       <h1
         ref={titleRef}
         className="text-4xl lg:text-6xl font-bold"
-        style={{ whiteSpace: "pre" }}
+        
       >
         Hey, I'm Mohammad Emami
       </h1>
-      <p ref={subTitleRef} className="text-lg lg:text-xl  opacity-80">
-        {displayText}
+      <p ref={subTitleRef} className="text-lg lg:text-2xl  opacity-80" style={{ whiteSpace: "pre" }}>
+        {mounted ?  displayText : text}
         <span className="blinkingCursor">|</span>
       </p>
       <div className="flex justify-between items-center  p-5 gap-8">
@@ -143,7 +145,7 @@ export default function Home() {
         {copied ? (
           <button
             ref={copyBtnRef}
-            className="flex justify-between items-center cursor-pointer w-64 bg-red-700"
+            className="flex justify-between items-center cursor-pointer w-64"
             onClick={handleCopy}
           >
             {" "}
