@@ -8,7 +8,7 @@ export default function About() {
   return (
     <section className="w-full h-[200vh]  about ">
       <div className="w-full h-[30vh]  flex justify-center items-center relative">
-        <span className="capitalize text-9xl absolute top-1/2 left-1/2 transform -translate-1/2 z-0 text-stone-700 ">
+        <span className="capitalize text-9xl absolute top-1/2 left-1/2 transform -translate-1/2 z-0 text-stone-700 font-extrabold opacity-50">
           ABOUT ME
           <span
             className="w-full h-full absolute top-0 left-0 "
@@ -21,7 +21,7 @@ export default function About() {
           <FlagText
             text="About me "
             charDelay={0.1}
-            className="text-5xl font-bold absolute top-1/2 left-1/2 transform -translate-x-[50%] -translate-y-[30%]  capitalize *:text-shadow-zinc-950 z-10"
+            className="text-6xl  font-bold absolute top-1/2 left-1/2 transform -translate-x-[50%] -translate-y-[30%]  capitalize *:text-shadow-zinc-950 z-10"
           />
         </h2>
       </div>
