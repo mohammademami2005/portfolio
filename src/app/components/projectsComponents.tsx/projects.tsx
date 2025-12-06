@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowRight } from "iconsax-react";
+import { ArrowRight, ArrowRight2 } from "iconsax-react";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import FourWayArrowIcon from "./liIcons";
@@ -257,12 +257,11 @@ export default function ShowProjects() {
   const [sectionId, setSectionId] = useState<string | undefined>();
   const [targetData, setTargetData] = useState<Data | undefined>(data[0]);
 
-  // refs 
-  const featureUlRef = useRef<HTMLUListElement | null>(null)
-  const sectionNameRef = useRef<HTMLHeadingElement | null>(null)
-  const technologyRef = useRef<HTMLUListElement | null>(null)
-  const descriptionRef = useRef<HTMLParagraphElement | null>(null)
-
+  // refs
+  const featureUlRef = useRef<HTMLUListElement | null>(null);
+  const sectionNameRef = useRef<HTMLHeadingElement | null>(null);
+  const technologyRef = useRef<HTMLUListElement | null>(null);
+  const descriptionRef = useRef<HTMLParagraphElement | null>(null);
 
   useEffect(() => {
     if (!sectionId) return;
@@ -290,46 +289,58 @@ export default function ShowProjects() {
     return () => observer.disconnect();
   }, []);
 
-
-  useEffect(()=>{
-    const features = featureUlRef.current?.querySelectorAll('li')
-    const technologies = technologyRef.current?.querySelectorAll('li')
+  useEffect(() => {
+    const features = featureUlRef.current?.querySelectorAll("li");
+    const technologies = technologyRef.current?.querySelectorAll("li");
     const tl = gsap.timeline({
-      repeat:0,
+      repeat: 0,
       yoyo: true,
-      defaults:{duration:0.1 ,ease:'sine' }
-    })
+      defaults: { duration: 0.1, ease: "sine" },
+    });
 
     const tl2 = gsap.timeline({
-      repeat:0,yoyo:true,
-      defaults:{duration:0.3 , ease:'back.inOut'}
-    })
+      repeat: 0,
+      yoyo: true,
+      defaults: { duration: 0.3, ease: "back.inOut" },
+    });
 
-    
+    features?.forEach((item, i) => {
+      tl.fromTo(
+        item,
+        { opacity: 0, y: -20 },
+        { opacity: 1, y: 0, stagger: 0.5 }
+      );
+    });
 
-    features?.forEach((item , i)=>{
-      tl.fromTo(item , {opacity:0 , y:-20},{opacity:1, y:0 , stagger:0.5})
-    })
+    technologies?.forEach((item) => {
+      tl2.fromTo(
+        item,
+        { opacity: 0, x: 20 },
+        { opacity: 1, x: 0, stagger: 0.5 }
+      );
+    });
 
+    const ctx = gsap.context(() => {
+      gsap.fromTo(
+        sectionNameRef.current,
+        { opacity: 0, y: 10 },
+        { opacity: 1, y: 0, duration: 1, ease: "power1" }
+      );
 
-    technologies?.forEach((item)=>{
-      tl2.fromTo(item,{opacity:0 , x:20},{opacity:1 , x:0,stagger:0.5})
-    })
+      gsap.fromTo(
+        descriptionRef.current,
+        { opacity: 0 },
+        { opacity: 1, duration: 1.5 }
+      );
+    });
 
-  const ctx =  gsap.context(()=>{
-      gsap.fromTo(sectionNameRef.current,{opacity:0 , y:10},{opacity:1 , y:0 , duration:1 , ease:'power1'})
-
-      gsap.fromTo(descriptionRef.current , {opacity:0},{opacity:1 , duration:1.5})
-
-    })
-
-    return ()=>{
-      ctx.revert()
-    }
-  },[targetData])
+    return () => {
+      ctx.revert();
+    };
+  }, [targetData]);
 
   return (
-    <div className="flex w-full h-full  justify-center gap-7 pt-[10%] ">
+    <div className="flex w-full h-full flex-wrap justify-center gap-7 pt-[10%] ">
       {/* projects  */}
       <div className="w-6/12 h-[400vh]  flex flex-col justify-start gap-52  ">
         {data.map((section, i) => (
@@ -369,10 +380,20 @@ export default function ShowProjects() {
             </div>
           </Link>
         ))}
+        <Link
+          className="text-2xl capitalize text-gray-300 w-full flex justify-end items-center gap-5 "
+          href={"https://github.com/mohammademami2005"}
+        >
+          more projects . . .
+          <GithubIcon fill="#fff" />
+        </Link>
       </div>
       {/* sidebar  */}
       <div className="w-[38%]  h-screen sticky top-14 flex flex-col justify-start gap-3 pl-[3%] py-5">
-        <h4 ref={sectionNameRef} className="text-2xl flex justify-start gap-5  items-center">
+        <h4
+          ref={sectionNameRef}
+          className="text-2xl flex justify-start gap-5  items-center"
+        >
           {targetData?.name}{" "}
           <div
             className={`w-8 h-1.5 rounded-full   absolute -left-10 flex top-3`}
@@ -393,7 +414,9 @@ export default function ShowProjects() {
             />
           </Link>
         </h4>
-        <p ref={descriptionRef} className="text-gray-400 my-3">{targetData?.description}</p>
+        <p ref={descriptionRef} className="text-gray-400 my-3">
+          {targetData?.description}
+        </p>
         <ul ref={featureUlRef}>
           {targetData?.feature.values.map((item, i) => (
             <li
@@ -405,7 +428,10 @@ export default function ShowProjects() {
             </li>
           ))}
         </ul>
-        <ul ref={technologyRef} className=" flex flex-wrap  gap-2  items-center p-3 ">
+        <ul
+          ref={technologyRef}
+          className=" flex flex-wrap  gap-2  items-center p-3 "
+        >
           {targetData?.technology.map((item, i) => {
             return (
               <li

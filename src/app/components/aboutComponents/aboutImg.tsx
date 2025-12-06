@@ -32,10 +32,10 @@ export default function AboutImg() {
     }
   }, []);
   return (
-    <figure className="w-1/3 h-full p-5" ref={imgRef}>
+    <figure className="w-1/3 h-[80%] " ref={imgRef}>
       <img
-        className="w-full h-full bg-cover"
-        src="/img/mohammademami1.png"
+        className="w-full h-full bg-contain"
+        src="/img/me2.png"
         alt=""
       />
     </figure>
