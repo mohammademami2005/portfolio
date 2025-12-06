@@ -1,9 +1,19 @@
 "use client";
 import Image from "next/image";
 import React, { useEffect, useRef } from "react";
-import { DirectInbox, Send } from "iconsax-react";
+import { DirectInbox, Send, TickCircle } from "iconsax-react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import * as yup from "yup";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { useForm } from "react-hook-form";
+
+interface Data {
+  name: string;
+  email: string;
+  subject: string;
+  message: string;
+}
 
 export default function ContactClient() {
   const containerRef = useRef<HTMLDivElement | null>(null);
@@ -27,8 +37,8 @@ export default function ContactClient() {
           opacity: 1,
           y: 0,
           stagger: 0.2,
-          duration:1,
-          ease:'power3.inOut',
+          duration: 1,
+          ease: "power3.inOut",
           scrollTrigger: {
             trigger: sec1Ref.current,
             start: "top 90%",
@@ -37,7 +47,7 @@ export default function ContactClient() {
         }
       );
 
-      const formItem = gsap.utils.toArray('.form-selected-item')
+      const formItem = gsap.utils.toArray(".form-selected-item");
       gsap.fromTo(
         formItem,
         {
@@ -48,9 +58,9 @@ export default function ContactClient() {
           opacity: 1,
           x: 0,
           stagger: 0.2,
-          delay:1,
-          duration:0.5,
-          ease:'power3.inOut',
+          delay: 1,
+          duration: 0.5,
+          ease: "power3.inOut",
           scrollTrigger: {
             trigger: formRef.current,
             start: "top 90%",
@@ -65,8 +75,8 @@ export default function ContactClient() {
         {
           scale: 1,
           opacity: 1,
-          duration:2,
-          stagger:0.2,
+          duration: 2,
+          stagger: 0.2,
           scrollTrigger: {
             trigger: section,
             start: "top 90%",
@@ -80,6 +90,43 @@ export default function ContactClient() {
       ctx.revert();
     };
   }, []);
+
+  const schema = yup.object({
+    name: yup.string().required("name is required !"),
+    email: yup.string().required("email is required !").email(),
+    subject: yup.string().required("subject is required !"),
+    message: yup.string().required("message is required !"),
+  });
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isSubmitting},
+    reset,
+  } = useForm({
+    resolver: yupResolver(schema),
+  });
+
+  const onsubmit = async (data: Data) => {
+    try {
+      const res = await fetch("/api/send", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+
+      if (!res.ok) {
+        console.log("FAILED", await res.text());
+        return;
+      }
+
+      reset();
+      console.log("SUCCESS");
+    } catch (error) {
+      console.error("ERROR SENDING MAIL", error);
+    }
+  };
+
   return (
     <>
       {" "}
@@ -121,55 +168,92 @@ export default function ContactClient() {
             <span>emami20052008@gmail.com</span>
           </a>
         </div>
-        <div className="w-1/2 h-screen flex justify-center items-center" ref={formRef}>
-          <div className="w-[80%] h-[80%] rounded-2xl border border-gray-400 flex flex-wrap p-[5%] bg-white/10 backdrop-blur-xs">
+        <div
+          className="w-1/2 h-screen flex justify-center items-center"
+          ref={formRef}
+        >
+          <form onSubmit={handleSubmit(onsubmit)} className="w-[80%] h-[80%] rounded-2xl border border-gray-400 flex flex-wrap p-[5%] bg-white/10 backdrop-blur-xs">
             <div className="w-1/2  flex flex-col justify-center items-center">
-              <label htmlFor="" className="w-full text-start pl-4 form-selected-item">
+              <label
+                htmlFor=""
+                className="w-full text-start pl-4 form-selected-item"
+              >
                 Your Name
               </label>
               <input
+                {...register("name")}
                 type="text"
                 placeholder="John Doe"
-                className="w-10/12 px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-purple-500 focus:outline-none form-selected-item"
+                className={`${
+                  errors.name?.message ? "border border-red-500" : ""
+                }w-10/12 px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-purple-500 focus:outline-none form-selected-item`}
               />
             </div>
             <div className="w-1/2  flex flex-col justify-center items-center">
-              <label htmlFor="" className="w-full text-start pl-4 form-selected-item">
+              <label
+                htmlFor=""
+                className="w-full text-start pl-4 form-selected-item"
+              >
                 Your Email
               </label>
               <input
+                {...register("email")}
                 type="text"
                 placeholder="John@gmail.com"
-                className="w-10/12 px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-purple-500 focus:outline-none form-selected-item"
+                className={`w-10/12 px-4 py-2 rounded-lg border border-gray-300 ${
+                  errors.email?.message ? "border border-red-500" : ""
+                } focus:ring-2 focus:ring-purple-500 focus:outline-none form-selected-item`}
               />
             </div>
             <div className="w-full  flex flex-col justify-center items-center">
-              <label htmlFor="" className="w-full text-start pl-5 form-selected-item">
+              <label
+                htmlFor=""
+                className="w-full text-start pl-5 form-selected-item"
+              >
                 Subject
               </label>
               <input
+                {...register("subject")}
                 type="text"
                 placeholder="Project Inquiry"
-                className="w-11/12 px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-purple-500 focus:outline-none form-selected-item"
+                className={`${
+                  errors.subject?.message ? "border border-red-500" : ""
+                } w-11/12 px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-purple-500 focus:outline-none form-selected-item`}
               />
             </div>
             <div className="w-full  flex flex-col justify-center items-center">
-              <label htmlFor="" className="w-full text-start pl-5 form-selected-item">
+              <label
+                htmlFor=""
+                className="w-full text-start pl-5 form-selected-item"
+              >
                 Massage
               </label>
               <textarea
+                {...register("message")}
                 placeholder="Hello, i'd like to discuss a project..."
                 cols={10}
                 rows={5}
-                className="w-11/12 px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-purple-500 focus:outline-none form-selected-item"
+                className={` ${
+                  errors.message?.message ? "border border-red-500" : ""
+                } w-11/12 px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-purple-500 focus:outline-none form-selected-item`}
               ></textarea>
             </div>
 
-            <button className="w-11/12 h-16 bg-purple-700 mx-auto rounded-2xl flex justify-center items-center gap-3 cursor-pointer form-selected-item hover:*:rotate-360 ">
-              <Send size="24" color="#d9e3f0" className="-rotate-45 transform transition-all duration-200" />
+            <button
+              type="submit"
+              className="w-11/12 h-16 bg-purple-700 mx-auto rounded-2xl flex justify-center items-center gap-3 cursor-pointer form-selected-item hover:*:rotate-360 "
+            >
+              {isSubmitting ?
+               <TickCircle size="32" color="#07f055" /> :
+              <Send
+              size="24"
+              color="#d9e3f0"
+              className="-rotate-45 transform transition-all duration-200"
+              />
+            }
               send massage
             </button>
-          </div>
+          </form>
         </div>
       </div>
     </>
