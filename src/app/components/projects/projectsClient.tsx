@@ -5,8 +5,9 @@ import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import FourWayArrowIcon from "./liIcons";
 import Link from "next/link";
-import GithubIcon from "../aboutComponents/github";
+import GithubIcon from "../about/github";
 import gsap from "gsap";
+import { title } from "process";
 
 interface Technology {
   name: string;
@@ -138,6 +139,10 @@ const data: Data[] = [
       {
         name: "tanstack",
         src: "/icons/tanstack.png",
+      },
+      {
+        name: "react-hook-form",
+        src: "/icons/react-hook-form.svg",
       },
     ],
     img: "/screenshots/admin-panel.png",
@@ -436,9 +441,10 @@ export default function ShowProjects() {
             return (
               <li
                 key={i}
-                className=" w-12 h-12 flex justify-center items-center p-2"
+                className=" w-12 h-12 flex justify-center items-center p-2 group"
               >
                 <Image src={item.src} alt={item.name} width={50} height={50} />
+                <span className="hidden group-hover:flex p-2 justify-center items-center absolute -top-10 left-0 bg-white/10 rounded-2xl w-[150%]">{item.name}</span>
               </li>
             );
           })}

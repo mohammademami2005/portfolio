@@ -121,7 +121,7 @@ export default function Home() {
   return (
     <section
       ref={homeRef}
-      className="w-full h-screen flex flex-col justify-center gap-10 items-center "
+      className="w-full h-screen flex flex-col justify-center gap-10 items-center bg-[url(/img/background1.jpg)] bg-cover"
     >
       <h1
         ref={titleRef}

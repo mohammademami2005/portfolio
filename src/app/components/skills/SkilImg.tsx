@@ -87,6 +87,10 @@ const data = [
     icon: "/icons/vite.svg",
   },
   {
+    name: "React-hook-form",
+    icon: "/icons/react-hook-form.svg",
+  },
+  {
     name: "vs Code",
     icon: "/icons/vscode.svg",
   },

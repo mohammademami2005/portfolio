@@ -50,7 +50,6 @@ const handleHoverOut = (e: React.MouseEvent<HTMLAnchorElement>) => {
     >
       <Link
         href="mailto:emami20052008@gmail.com"
-        data-bg="black"
         onMouseOver={handleHover}
         onMouseLeave={handleHoverOut}
       >
@@ -72,7 +71,6 @@ const handleHoverOut = (e: React.MouseEvent<HTMLAnchorElement>) => {
       <Link
         href="https://www.linkedin.com/in/mohammademami2005"
         target="_blank"
-        data-bg="blue"
         onMouseOver={handleHover}
         onMouseLeave={handleHoverOut}
       >
@@ -86,8 +84,6 @@ const handleHoverOut = (e: React.MouseEvent<HTMLAnchorElement>) => {
       <Link
         href="https://www.instagram.com/mohammademami.dev"
         target="_blank"
-        rel="noopener noreferrer"
-        data-bg="red"
         onMouseOver={handleHover}
         onMouseLeave={handleHoverOut}
       >
@@ -96,8 +92,6 @@ const handleHoverOut = (e: React.MouseEvent<HTMLAnchorElement>) => {
       <Link
         target="_blank"
         href="https://github.com/mohammademami2005"
-        rel="noopener noreferrer"
-        data-bg="yellow"
         onMouseOver={handleHover}
         onMouseLeave={handleHoverOut}
       >

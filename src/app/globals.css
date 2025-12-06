@@ -60,6 +60,10 @@
 body {
   background: var(--background);
   color: var(--foreground);
+  &::selection{
+    color: rgb(255, 0, 255);
+    background-color: #0a0a0a;
+  }
 }
 
 .blinkingCursor {

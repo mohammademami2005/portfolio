@@ -13,7 +13,7 @@ interface WaveTextProps {
   charDelay?: number; // stagger delay between chars
 }
 
-export default function WaveText({
+export default function FlagText({
   text,
   className = "",
   waveAmplitude = 50,

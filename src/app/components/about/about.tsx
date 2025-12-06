@@ -1,12 +1,12 @@
 // import React, { useEffect, useRef } from "react";
-import TextSpan from "./aboutComponents/textSpan";
-import FlagText from "./new";
-import AboutImg from "./aboutComponents/aboutImg";
-import AboutLinks from "./aboutComponents/AboutLinks";
+import TextSpan from "./textSpan";
+import FlagText from "../FlagText";
+import AboutImg from "./aboutImg";
+import AboutLinks from "./AboutLinks";
 
 export default function About() {
   return (
-    <section className="w-full h-[200vh]  about ">
+    <section className="w-full h-[200vh]  about bg-black">
       <div className="w-full h-[30vh]  flex justify-center items-center relative">
         <span className="capitalize text-9xl absolute top-1/2 left-1/2 transform -translate-1/2 z-0 text-stone-700 font-extrabold opacity-50">
           ABOUT ME

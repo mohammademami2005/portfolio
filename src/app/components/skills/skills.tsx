@@ -1,12 +1,12 @@
 import React from "react";
-import FlagText from "./new";
-import SkillClient from "./skillsComponents/SkilImg";
+import FlagText from "../FlagText";
+import SkillClient from "./SkilImg";
 import Image from "next/image";
 
 export default function Skills() {
   return (
-    <section className="mt-[20%]" >
-      <div className="w-full h-[30vh]  flex justify-center items-center relative">
+    <section className="mt-[40vh] " >
+      <div className="w-full h-[30vh]  flex justify-center items-center relative ">
       <figure className="flex justify-center items-center w-full absolute top-0 left-1/2 -translate-1/2">
         <Image
           src={"/img/mySkills.png"}
