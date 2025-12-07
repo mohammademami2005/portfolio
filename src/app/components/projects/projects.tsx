@@ -6,7 +6,7 @@ export default function Projects() {
   return (
     <section className="bg-[url(/img/background1.jpg)] " id="projects">
       <div className="w-full h-[30vh]  flex justify-center items-center relative">
-        <span className="capitalize text-9xl absolute top-1/2 left-1/2 transform -translate-1/2 z-0 text-stone-700 font-extrabold opacity-50">
+        <span className="capitalize text-7xl lg:text-9xl absolute top-1/2 left-1/2 transform -translate-1/2 z-0 text-stone-700 font-extrabold opacity-50">
           PROJECTS
           <span
             className="w-full h-full absolute top-0 left-0 "
@@ -19,7 +19,7 @@ export default function Projects() {
           <FlagText
             text="Projects "
             charDelay={0.1}
-            className="text-5xl font-bold absolute top-1/2 left-1/2 transform -translate-x-[50%] -translate-y-[30%]  capitalize *:text-shadow-zinc-950 z-10"
+            className="text-4xl lg:text-5xl font-bold absolute top-1/2 left-1/2 transform -translate-x-[50%] -translate-y-[30%]  capitalize *:text-shadow-zinc-950 z-10"
           />
         </h2>
       </div>

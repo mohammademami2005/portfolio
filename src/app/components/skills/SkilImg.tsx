@@ -131,16 +131,16 @@ export default function SkillClient() {
 
   return (
     <div ref={targetRef} className="flex flex-col justify-between items-center">
-      <div className="w-2/3 h-[79vh]  flex  justify-center items-center">
+      <div className="w-full lg:w-2/3 lg:h-[89vh]  flex  justify-center items-start lg:items-center pt-5">
         <div
           ref={containerRef}
-          className=" flex flex-wrap w-[80%] h-[50%] justify-center gap-6"
+          className=" flex flex-wrap w-full lg:w-[80%] h-[50vh]  lg:h-full justify-center gap-3 lg:gap-6"
         >
           {data.map((item, i) => {
             return (
               <div
                 key={i}
-                className="skill-item flex p-3  justify-center items-center gap-5 bg-white/10 backdrop-blur-sm rounded-2xl  group transform transition-all duration-300 hover:scale-110 hover:bg-white/15 hover:rotate-6 px-5 py-2.5 border border-gray-300 text-gray-200"
+                className="skill-item flex h-10  lg:h-14 px-5 justify-center items-center text-xs lg:text-lg gap-2 lg:gap-5 bg-white/10 backdrop-blur-sm rounded-2xl  group transform transition-all duration-300 hover:scale-110 hover:bg-white/15 hover:rotate-6  border border-gray-300 text-gray-200"
               >
                 <Image
                   className="group-hover:rotate-360 transform transition-all duration-700"

@@ -347,7 +347,7 @@ export default function ShowProjects() {
   return (
     <div className="flex w-full h-full flex-wrap justify-center gap-7 pt-[10%] ">
       {/* projects  */}
-      <div className="w-6/12 h-[400vh]  flex flex-col justify-start gap-52  ">
+      <div className="w-full lg:w-6/12 h-[400vh]  flex flex-col justify-start gap-52  ">
         {data.map((section, i) => (
           <Link
             id={section.id}
@@ -394,7 +394,7 @@ export default function ShowProjects() {
         </Link>
       </div>
       {/* sidebar  */}
-      <div className="w-[38%]  h-screen sticky top-14 flex flex-col justify-start gap-3 pl-[3%] py-5">
+      <div className="w-full lg:w-[38%]  h-screen sticky top-14 flex flex-col justify-start gap-3 pl-[3%] py-5">
         <h4
           ref={sectionNameRef}
           className="text-2xl flex justify-start gap-5  items-center"

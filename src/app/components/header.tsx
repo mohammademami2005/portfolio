@@ -100,7 +100,7 @@ export default function Header() {
                     : "lg:translate-y-0 opacity-0 lg:opacity-100"
                 }`}
               >
-                <button>{item.name}</button>
+                <button className="cursor-pointer">{item.name}</button>
               </li>
             );
           })}

@@ -141,11 +141,11 @@ export default function ContactClient() {
       </figure>
       <div
         ref={containerRef}
-        className="w-full h-screen flex flex-wrap justify-center items-center "
+        className="w-full h-[200vh] lg:h-screen flex flex-wrap justify-center items-center "
       >
         <div
           ref={sec1Ref}
-          className="w-1/2 flex flex-col justify-start items-start *:text-start pl-[10%] gap-4"
+          className="w-full lg:w-1/2  flex flex-col justify-start items-start *:text-start pl-[10%] gap-4"
         >
           <h3 className="text-3xl font-bold selected-item">
             Let's work together
@@ -169,10 +169,10 @@ export default function ContactClient() {
           </a>
         </div>
         <div
-          className="w-1/2 h-screen flex justify-center items-center"
+          className="w-full lg:w-1/2 h-screen flex justify-center lg:items-center"
           ref={formRef}
         >
-          <form onSubmit={handleSubmit(onsubmit)} className="w-[80%] h-[80%] rounded-2xl border border-gray-400 flex flex-wrap p-[5%] bg-white/10 backdrop-blur-xs">
+          <form onSubmit={handleSubmit(onsubmit)} className="w-[90%] lg:w-[80%] h-[65%] lg:h-[80%] rounded-2xl border border-gray-400 flex flex-wrap p-[5%] bg-white/10 backdrop-blur-xs">
             <div className="w-1/2  flex flex-col justify-center items-center">
               <label
                 htmlFor=""
