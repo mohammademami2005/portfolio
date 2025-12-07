@@ -120,6 +120,7 @@ export default function Home() {
 
   return (
     <section
+    id="home"
       ref={homeRef}
       className="w-full h-screen flex flex-col justify-center gap-10 items-center bg-[url(/img/background1.jpg)] bg-cover"
     >

@@ -4,7 +4,7 @@ import ShowProjects from "./projectsClient";
 
 export default function Projects() {
   return (
-    <section className="bg-[url(/img/background1.jpg)] ">
+    <section className="bg-[url(/img/background1.jpg)] " id="projects">
       <div className="w-full h-[30vh]  flex justify-center items-center relative">
         <span className="capitalize text-9xl absolute top-1/2 left-1/2 transform -translate-1/2 z-0 text-stone-700 font-extrabold opacity-50">
           PROJECTS

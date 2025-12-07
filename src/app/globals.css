@@ -60,8 +60,9 @@
 body {
   background: var(--background);
   color: var(--foreground);
+  
   &::selection{
-    color: rgb(255, 0, 255);
+    color: rgb(157, 0, 255);
     background-color: #0a0a0a;
   }
 }

@@ -5,7 +5,7 @@ import Image from "next/image";
 
 export default function Skills() {
   return (
-    <section className="mt-[40vh] " >
+    <section className="mt-[40vh] " id="skills">
       <div className="w-full h-[30vh]  flex justify-center items-center relative ">
       <figure className="flex justify-center items-center w-full absolute top-0 left-1/2 -translate-1/2">
         <Image
