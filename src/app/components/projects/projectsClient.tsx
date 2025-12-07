@@ -347,46 +347,113 @@ export default function ShowProjects() {
   return (
     <div className="flex w-full h-full flex-wrap justify-center gap-7 pt-[10%] ">
       {/* projects  */}
-      <div className="w-full lg:w-6/12 h-[400vh]  flex flex-col justify-start gap-52  ">
+      <div className="w-full lg:w-6/12 lg:h-[400vh]  flex flex-col justify-start gap-20 lg:gap-52  px-2 ">
         {data.map((section, i) => (
-          <Link
-            id={section.id}
-            target="_blank"
-            href={section.link}
-            key={i}
-            className="w-full h-[70vh] cursor-pointer rounded-3xl bg-white/10 backdrop-blur-xs border border-gray-400 flex justify-center items-center"
-          >
-            <div
-              className={`w-[96%] h-[96%] p-2 relative  rounded-2xl overflow-hidden pt-6`}
-              style={{ background: section.background }}
+          <div key={i}>
+            <Link
+              id={section.id}
+              target="_blank"
+              href={section.link}
+              className="w-full h-[50vh] lg:h-[70vh] cursor-pointer rounded-3xl bg-white/10 backdrop-blur-xs border border-gray-400 flex justify-center items-center"
             >
-              <div className="flex justify-around items-center">
-                <h4
-                  className="text-xl  w-[70%] "
-                  style={{ color: section.color }}
-                >
-                  {section.ShortDeskription}
-                </h4>
-                <ArrowRight
-                  size="32"
-                  color="#d9e3f0"
-                  className="hover:scale-125  transform transition-all duration-300"
-                />
+              <div
+                className={`w-[96%] h-[96%] p-2 relative  rounded-2xl overflow-hidden pt-6`}
+                style={{ background: section.background }}
+              >
+                <div className="hidden  lg:flex justify-around items-center">
+                  <h4
+                    className="text-xl  w-[70%] "
+                    style={{ color: section.color }}
+                  >
+                    {section.ShortDeskription}
+                  </h4>
+                  <ArrowRight
+                    size="32"
+                    color="#d9e3f0"
+                    className="hover:scale-125  transform transition-all duration-300"
+                  />
+                </div>
+                <figure className="absolute -bottom-10 left-0 w-full h-[80%] lg:h-[65%] flex justify-center">
+                  <Image
+                    src={section.img}
+                    alt={section.name}
+                    width={200}
+                    height={200}
+                    className="w-[85%] h-full bg-cover transform transition-all duration-200 hover:rotate-6 hover:scale-110 rounded-2xl "
+                  />
+                </figure>
               </div>
-              <figure className="absolute -bottom-10 left-0 w-full h-[65%] flex justify-center">
-                <Image
-                  src={section.img}
-                  alt={section.name}
-                  width={200}
-                  height={200}
-                  className="w-[85%] h-full bg-cover transform transition-all duration-200 hover:rotate-6 hover:scale-110 rounded-2xl "
-                />
-              </figure>
+            </Link>
+            <div className="lg:hidden w-full  h-screen  flex flex-col justify-start gap-3 pl-[3%] py-5">
+              <h4
+                ref={sectionNameRef}
+                className="text-2xl flex justify-start gap-5  items-center"
+              >
+                {section.name}{" "}
+                <div
+                  className={`w-8 h-1.5 rounded-full   absolute -left-10 flex top-3`}
+                  style={{ backgroundColor: section.color }}
+                ></div>
+                <Link
+                  href={
+                    section
+                      ? section.repository
+                      : "https://github.com/mohammademami2005"
+                  }
+                  target="_blank"
+                >
+                  <GithubIcon
+                    width={"30px"}
+                    height={"30px"}
+                    fill={section.color}
+                  />
+                </Link>
+              </h4>
+              <p ref={descriptionRef} className="text-gray-400 my-3">
+                {section.description}
+              </p>
+              <ul ref={featureUlRef}>
+                {section.feature.values.map((item, i) => (
+                  <li
+                    key={i}
+                    className="flex justify-start items-center gap-3 mb-2 text-gray-300"
+                  >
+                    <FourWayArrowIcon
+                      fill={section.color}
+                      className={`size-5 `}
+                    />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+              <ul
+                ref={technologyRef}
+                className=" flex flex-wrap  gap-2  items-center p-3 "
+              >
+                {section.technology.map((item, i) => {
+                  return (
+                    <li
+                      key={i}
+                      className=" w-12 h-12 flex justify-center items-center p-2 group"
+                    >
+                      <Image
+                        src={item.src}
+                        alt={item.name}
+                        width={50}
+                        height={50}
+                      />
+                      <span className="hidden group-hover:flex p-2 justify-center items-center absolute -top-10 left-0 bg-white/10 rounded-2xl w-[150%]">
+                        {item.name}
+                      </span>
+                    </li>
+                  );
+                })}
+              </ul>
             </div>
-          </Link>
+          </div>
         ))}
         <Link
-          className="text-2xl capitalize text-gray-300 w-full flex justify-end items-center gap-5 "
+          className="-translate-y-10 text-2xl capitalize text-gray-300 w-full flex justify-center lg:justify-end items-center gap-5 "
           href={"https://github.com/mohammademami2005"}
         >
           more projects . . .
@@ -394,7 +461,7 @@ export default function ShowProjects() {
         </Link>
       </div>
       {/* sidebar  */}
-      <div className="w-full lg:w-[38%]  h-screen sticky top-14 flex flex-col justify-start gap-3 pl-[3%] py-5">
+      <div className="hidden w-full lg:w-[38%]  h-screen sticky top-14 lg:flex flex-col justify-start gap-3 pl-[3%] py-5">
         <h4
           ref={sectionNameRef}
           className="text-2xl flex justify-start gap-5  items-center"
@@ -444,7 +511,9 @@ export default function ShowProjects() {
                 className=" w-12 h-12 flex justify-center items-center p-2 group"
               >
                 <Image src={item.src} alt={item.name} width={50} height={50} />
-                <span className="hidden group-hover:flex p-2 justify-center items-center absolute -top-10 left-0 bg-white/10 rounded-2xl w-[150%]">{item.name}</span>
+                <span className="hidden group-hover:flex p-2 justify-center items-center absolute -top-10 left-0 bg-white/10 rounded-2xl w-[150%]">
+                  {item.name}
+                </span>
               </li>
             );
           })}

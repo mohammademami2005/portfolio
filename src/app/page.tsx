@@ -11,7 +11,7 @@ export default function Page() {
   return (
     <>
     <Header />
-    <main className="w-full h-[1100vh]  ">
+    <main >
       <Home />
       <About />
       <Projects />

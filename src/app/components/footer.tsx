@@ -7,8 +7,8 @@ import { Copyright, Instagram } from "iconsax-react";
 
 export default function Footer() {
   return (
-    <footer className="w-full h-[30vh] flex flex-col justify-between items-center">
-      <div className="flex justify-center items-center gap-6 w-1/2 h-1/3 *:bg-white/5 *:w-14 *:h-14 *:hover:scale-150 *:transform *:transition-all *:duration-500 *:rounded-full *:flex *:justify-center *:items-center">
+    <footer className="w-full h-[40vh] lg:h-[30vh] flex flex-col justify-between items-center">
+      <div className="flex justify-center items-center gap-6 lg:w-1/2 h-1/3 *:bg-white/5 *:w-14 *:h-14 *:hover:scale-150 *:transform *:transition-all *:duration-500 *:rounded-full *:flex *:justify-center *:items-center">
         <Link href="mailto:emami20052008@gmail.com">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -46,7 +46,7 @@ export default function Footer() {
           <GithubIcon fill="#fff" width={"22px"} height={"22px"} />
         </Link>
       </div>
-      <div className=" w-1/2 h-1/3 flex justify-center items-center gap-4">
+      <div className="w-full lg:w-1/2 h-1/3 flex justify-center items-center gap-4">
         {/* left  */}
         <span className=" w-20 h-px bg-linear-to-l from-purple-500 to-black"></span>
         {/* circle  */}
@@ -54,7 +54,7 @@ export default function Footer() {
         {/* right  */}
         <span className="w-20 h-px bg-linear-to-r from-purple-500 to-black"></span>
       </div>
-      <div className="w-1/2 h-1/3 flex justify-center items-center">
+      <div className="w-full lg:w-1/2 h-1/3 flex justify-center items-center">
         <p className="flex justify-center items-center text-gray-500 gap-0.5">
           <Copyright size="20" color="#d9e3f0" />
           2025

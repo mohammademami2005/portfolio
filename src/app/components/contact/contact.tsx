@@ -5,7 +5,7 @@ import Image from "next/image";
 
 export default function Contact() {
   return (
-    <section className="mt-[60vh] relative bg-[url(/img/background1.jpg)] border-b border-b-gray-600" id="contact">
+    <section className="mt-[60vh] relative bg-[url(/img/background1.jpg)] border-b border-b-gray-600 " id="contact">
       <div className="w-full h-[30vh]  flex justify-center items-center relative">
         <span className="capitalize text-8xl lg:text-9xl absolute top-1/2 left-1/2 transform -translate-1/2 z-20 text-stone-300 font-extrabold opacity-50">
           CONTACT
