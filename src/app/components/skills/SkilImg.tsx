@@ -59,6 +59,10 @@ const data = [
     icon: "/icons/mui.svg",
   },
   {
+    name: "shad cn",
+    icon: "/icons/shadcn.svg",
+  },
+  {
     name: "Progressive Web Apps",
     icon: "/icons/pwa.svg",
   },
@@ -89,6 +93,10 @@ const data = [
   {
     name: "React-hook-form",
     icon: "/icons/react-hook-form.svg",
+  },
+  {
+    name: "zod",
+    icon: "/icons/zod.svg",
   },
   {
     name: "vs Code",
