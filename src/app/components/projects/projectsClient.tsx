@@ -254,8 +254,62 @@ const data: Data[] = [
     ],
     img: "/screenshots/gta.png",
     repository: "https://github.com/mohammademami2005/GTA-VI-Trailer",
-    link: "https://gta-parallax.mohammademamiproject.ir//",
+    link: "https://gta-parallax.mohammademamiproject.ir/",
   },
+  {
+  name: "Weather App",
+  id: "weather",
+  description:"An advanced, responsive weather forecasting application providing real-time weather updates. Built with modern frontend architecture using Next.js, React, and Shadcn/ui for a professional, accessible, and fully responsive interface. The project focuses on high performance, full TypeScript type safety, scalable state management with Zustand, server-state handling with React Query, and precise schema validation with Zod to ensure accurate and consistent weather information for users.",
+  ShortDeskription:
+    "A modern and responsive weather app featuring real-time forecasts, full TypeScript safety, Zustand state management, and a sleek, intuitive interface.",
+  color: "#99F2D1",
+  background:' linear-gradient(180deg, hsla(164, 38%, 18%, 1) 0%, hsla(158, 77%, 77%, 1) 100%);',
+  feature: {
+    values: [
+      "Real-time weather updates using Open-Meteo API",
+      "Full TypeScript type safety",
+      "Scalable global state management with Zustand",
+      "Server-state management & caching with React Query",
+      "Responsive and accessible UI with Tailwind CSS & Shadcn/ui",
+      "Schema validation with Zod for consistent data",
+      "Optimized for performance and maintainability",
+    ],
+  },
+  technology: [
+    {
+      name: "Next.js",
+      src: "/icons/next.svg",
+    },
+    {
+      name: "React",
+      src: "/icons/react.svg",
+    },
+    {
+      name: "TypeScript",
+      src: "/icons/typescript.svg",
+    },
+    {
+      name: "Tailwind CSS",
+      src: "/icons/tailwind.svg",
+    },
+    {
+      name: "Shadcn/ui",
+      src: "/icons/shadcn.svg",
+    },
+    {
+      name: "Zustand",
+      src: "/icons/zustand.svg",
+    },
+    {
+      name: "Zod",
+      src: "/icons/zod.svg",
+    },
+  ],
+  img: "/screenshots/weather2.png",
+  repository: "https://github.com/mohammademami2005/weather",
+  link: "https://weather.mohammademamiproject.ir/",
+}
+
 ];
 
 export default function ShowProjects() {
@@ -347,7 +401,7 @@ export default function ShowProjects() {
   return (
     <div className="flex w-full h-full flex-wrap justify-center gap-7 pt-[10%] ">
       {/* projects  */}
-      <div className="w-full lg:w-6/12 lg:h-[400vh]  flex flex-col justify-start gap-20 lg:gap-52  px-2 ">
+      <div className="w-full lg:w-6/12 lg:h-[500vh]  flex flex-col justify-start gap-20 lg:gap-52  px-2 ">
         {data.map((section, i) => (
           <div key={i}>
             <Link
