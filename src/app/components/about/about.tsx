@@ -61,7 +61,7 @@ export default function About() {
           </div>
           <div className="bg-white backdrop-blur-2xl w-1/3 h-14 rounded-4xl mx-auto lg:mx-0">
             <a
-              href="img/background1.jpg"
+              href="/mohammad-emami-resume.pdf"
               download={"mohammademami-resumeh"}
               className="flex justify-center items-center w-full h-full  transform transition-all duration-500 text-sm lg:text-lg hover:text-xl cursor-pointer h3bg font-bold"
             >

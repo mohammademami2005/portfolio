@@ -6,6 +6,7 @@ import Projects from "./components/projects/projects";
 import Skills from "./components/skills/skills";
 import Contact from "./components/contact/contact";
 import Footer from "./components/footer";
+import Education from "./components/Education/Education";
 
 export default function Page() {
   return (
@@ -16,6 +17,7 @@ export default function Page() {
       <About />
       <Projects />
       <Skills />
+      <Education />
       <Contact />
     </main>
     <Footer />
