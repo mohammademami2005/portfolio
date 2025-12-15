@@ -43,12 +43,9 @@ This project is built upon a modern and optimized technology stack for frontend 
 
 ## 🖼️ Overview (Screenshot)
 
-To view the design, structure, and animations of the portfolio, please include a screenshot below.
-
-```markdown
-
-[Portfolio Overview](public/screenshots/portfolioScreenShot.png)
-```
+<p align="center">
+  <img src="/public/screenshots/portfolioScreenShot.png" alt="Weather App Screenshot" width="1024" />
+</p>
 
 ---
 
