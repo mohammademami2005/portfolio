@@ -332,7 +332,6 @@ export default function ShowProjects() {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            console.log("المنت داخل viewport هست:", entry.target.id);
             setSectionId(entry.target.id);
           }
         });

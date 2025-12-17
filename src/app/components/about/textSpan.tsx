@@ -7,7 +7,6 @@ export default function TextSpan() {
 
   useEffect(() => {
     const section = document.querySelector('.about');
-    console.log(section)
     if (!section || !ref.current) return;
 
     const observer = new IntersectionObserver(
