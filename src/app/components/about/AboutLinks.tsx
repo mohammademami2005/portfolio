@@ -64,7 +64,7 @@ export default function AboutLinks() {
       className="flex justify-between items-center *:rounded-full *:bg-white/10 *:flex *:justify-center *:items-center *:w-12 *:h-12 *:mx-2 *:lg:w-16 *:lg:h-16 lg:w-[40%] "
     >
       <Link
-        href="mailto:emami20052008@gmail.com"
+        href="mailto:mohammademami.dev@gmail.com"
         onMouseOver={handleHover}
         onMouseLeave={handleHoverOut}
       >

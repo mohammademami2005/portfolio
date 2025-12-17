@@ -108,7 +108,7 @@ export default function Home() {
 
   const handleCopy = async () => {
     try {
-      await navigator.clipboard.writeText("emami20052008@gmail.com");
+      await navigator.clipboard.writeText("mohammademami.dev@gmail.com");
       setCopied(true);
       setTimeout(() => {
         setCopied(false);
@@ -156,11 +156,11 @@ export default function Home() {
         ) : (
           <button
             ref={copyBtnRef}
-            className="flex justify-between items-center  cursor-pointer w-64 hover:text-purple-700 hover:font-bold transform transition-all duration-500"
+            className="flex justify-between items-center  cursor-pointer w-72 hover:text-purple-700 hover:font-bold transform transition-all duration-500"
             onClick={handleCopy}
           >
             {" "}
-            <Copy size="32" color="#fff" /> emami20052008@gmail.com{" "}
+            <Copy size="32" color="#fff"/> mohammademami.dev@gmail.com{" "}
           </button>
         )}
       </div>

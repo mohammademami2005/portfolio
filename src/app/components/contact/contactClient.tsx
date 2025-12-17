@@ -161,11 +161,11 @@ export default function ContactClient() {
             I look forward to connecting with you soon.
           </p>
           <a
-            href="mailto:emami20052008@gmail.com"
+            href="mailto:mohammademami.dev@gmail.com"
             className="bg-purple-800/50 rounded-xl flex justify-center items-center gap-3 p-4 selected-item"
           >
             <Send size="24" color="#d9e3f0" className="-rotate-45" />
-            <span>emami20052008@gmail.com</span>
+            <span>mohammademami.dev@gmail.com</span>
           </a>
         </div>
         <div
