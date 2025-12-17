@@ -133,7 +133,7 @@ export default function Education() {
             <figure>
               <Image
                 className="images"
-                src="/img/Certificate-vezarate-ulume.png"
+                src="/img/Certificate-vezarate-ulume1.png"
                 alt="parnian "
                 width={400}
                 height={400}
@@ -157,11 +157,11 @@ export default function Education() {
               applications
             </li>
           </ul>
-          <Link href="/img/Certificate-parnian.jpg" target="_blank">
+          <Link href="/img/Certificate-parnian.png" target="_blank">
             <figure>
               <Image
                 className="images"
-                src="/img/Certificate-parnian.jpg"
+                src="/img/Certificate-parnian.png"
                 alt="parnian "
                 width={400}
                 height={400}
