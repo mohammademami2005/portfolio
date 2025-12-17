@@ -8,6 +8,7 @@ import Link from "next/link";
 import GithubIcon from "../about/github";
 import gsap from "gsap";
 import { title } from "process";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 interface Technology {
   name: string;
@@ -257,60 +258,62 @@ const data: Data[] = [
     link: "https://gta-parallax.mohammademamiproject.ir/",
   },
   {
-  name: "Weather App",
-  id: "weather",
-  description:"An advanced, responsive weather forecasting application providing real-time weather updates. Built with modern frontend architecture using Next.js, React, and Shadcn/ui for a professional, accessible, and fully responsive interface. The project focuses on high performance, full TypeScript type safety, scalable state management with Zustand, server-state handling with React Query, and precise schema validation with Zod to ensure accurate and consistent weather information for users.",
-  ShortDeskription:
-    "A modern and responsive weather app featuring real-time forecasts, full TypeScript safety, Zustand state management, and a sleek, intuitive interface.",
-  color: "#99F2D1",
-  background:' linear-gradient(180deg, hsla(164, 38%, 18%, 1) 0%, hsla(158, 77%, 77%, 1) 100%);',
-  feature: {
-    values: [
-      "Real-time weather updates using Open-Meteo API",
-      "Full TypeScript type safety",
-      "Scalable global state management with Zustand",
-      "Server-state management & caching with React Query",
-      "Responsive and accessible UI with Tailwind CSS & Shadcn/ui",
-      "Schema validation with Zod for consistent data",
-      "Optimized for performance and maintainability",
+    name: "Weather App",
+    id: "weather",
+    description:
+      "An advanced, responsive weather forecasting application providing real-time weather updates. Built with modern frontend architecture using Next.js, React, and Shadcn/ui for a professional, accessible, and fully responsive interface. The project focuses on high performance, full TypeScript type safety, scalable state management with Zustand, server-state handling with React Query, and precise schema validation with Zod to ensure accurate and consistent weather information for users.",
+    ShortDeskription:
+      "A modern and responsive weather app featuring real-time forecasts, full TypeScript safety, Zustand state management, and a sleek, intuitive interface.",
+    color: "#99F2D1",
+    background:
+      " linear-gradient(180deg, hsla(164, 38%, 18%, 1) 0%, hsla(158, 77%, 77%, 1) 100%);",
+    feature: {
+      values: [
+        "Real-time weather updates using Open-Meteo API",
+        "Full TypeScript type safety",
+        "Scalable global state management with Zustand",
+        "Server-state management & caching with React Query",
+        "Responsive and accessible UI with Tailwind CSS & Shadcn/ui",
+        "Schema validation with Zod for consistent data",
+        "Optimized for performance and maintainability",
+      ],
+    },
+    technology: [
+      {
+        name: "Next.js",
+        src: "/icons/next.svg",
+      },
+      {
+        name: "React",
+        src: "/icons/react.svg",
+      },
+      {
+        name: "TypeScript",
+        src: "/icons/typescript.svg",
+      },
+      {
+        name: "Tailwind CSS",
+        src: "/icons/tailwind.svg",
+      },
+      {
+        name: "Shadcn/ui",
+        src: "/icons/shadcn.svg",
+      },
+      {
+        name: "Zustand",
+        src: "/icons/zustand.svg",
+      },
+      {
+        name: "Zod",
+        src: "/icons/zod.svg",
+      },
     ],
+    img: "/screenshots/weather2.png",
+    repository: "https://github.com/mohammademami2005/weather",
+    link: "https://weather.mohammademamiproject.ir/",
   },
-  technology: [
-    {
-      name: "Next.js",
-      src: "/icons/next.svg",
-    },
-    {
-      name: "React",
-      src: "/icons/react.svg",
-    },
-    {
-      name: "TypeScript",
-      src: "/icons/typescript.svg",
-    },
-    {
-      name: "Tailwind CSS",
-      src: "/icons/tailwind.svg",
-    },
-    {
-      name: "Shadcn/ui",
-      src: "/icons/shadcn.svg",
-    },
-    {
-      name: "Zustand",
-      src: "/icons/zustand.svg",
-    },
-    {
-      name: "Zod",
-      src: "/icons/zod.svg",
-    },
-  ],
-  img: "/screenshots/weather2.png",
-  repository: "https://github.com/mohammademami2005/weather",
-  link: "https://weather.mohammademamiproject.ir/",
-}
-
 ];
+gsap.registerPlugin(ScrollTrigger);
 
 export default function ShowProjects() {
   const [sectionId, setSectionId] = useState<string | undefined>();
@@ -319,8 +322,10 @@ export default function ShowProjects() {
   // refs
   const featureUlRef = useRef<HTMLUListElement | null>(null);
   const sectionNameRef = useRef<HTMLHeadingElement | null>(null);
+  const sectionNameRef2 = useRef<HTMLHeadingElement | null>(null);
   const technologyRef = useRef<HTMLUListElement | null>(null);
   const descriptionRef = useRef<HTMLParagraphElement | null>(null);
+
 
   useEffect(() => {
     if (!sectionId) return;
@@ -384,6 +389,22 @@ export default function ShowProjects() {
         { opacity: 0, y: 10 },
         { opacity: 1, y: 0, duration: 1, ease: "power1" }
       );
+      // gsap.fromTo(
+      //   sectionNameRef2.current,
+      //   { opacity: 0, x: 10 },
+      //   {
+      //     opacity: 0,
+      //     x: 300,
+      //     duration: 1,
+      //     ease: "bounce.inOut",
+      //     scrollTrigger: {
+      //       trigger: sectionNameRef2.current,
+      //       start: "top bottom",
+      //       end: "bottom top",
+      //       scrub: true,
+      //     },
+      //   }
+      // );
 
       gsap.fromTo(
         descriptionRef.current,
@@ -396,6 +417,77 @@ export default function ShowProjects() {
       ctx.revert();
     };
   }, [targetData]);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      const sections = gsap.utils.toArray<HTMLElement>("[data-mobile-section]");
+
+      sections.forEach((section) => {
+        const title = section.querySelector(".mobile-title");
+
+        if (!title) return;
+
+        gsap.fromTo(
+          title,
+          { opacity: 0 },
+          {
+            opacity: 1,
+            duration: 2,
+            scrollTrigger: {
+              trigger: section,
+              start: "top 80%",
+              end: "top 30%",
+              scrub: true,
+            },
+          }
+        );
+        
+      const descriptionsMoblie = gsap.utils.toArray('.section-description-moblie')
+
+        gsap.fromTo(
+          descriptionsMoblie,
+          { opacity: 0 },
+          {
+            opacity: 1,
+            duration: 2,
+            scrollTrigger: {
+              trigger: section,
+              start: "top 95%",
+              end: "bottom top",
+              toggleActions: "play reverse play reverse",
+            },
+          }
+        );
+        
+
+        const lis = gsap.utils.toArray(section.querySelectorAll(".mobileLi"));
+
+        gsap.fromTo(
+          lis,
+          {
+            opacity: 0,
+            y: 80,
+          },
+          {
+            opacity: 1,
+            y: 0,
+            stagger: 0.2,
+            delay: 1,
+            duration: 0.5,
+            ease: "power3.inOut",
+            scrollTrigger: {
+              trigger: section,
+              start: "top 95%",
+              end: "bottom top",
+              toggleActions: "play reverse play reverse",
+            },
+          }
+        );
+      });
+    });
+
+    return () => ctx.revert();
+  }, []);
 
   return (
     <div className="flex w-full h-full flex-wrap justify-center gap-7 pt-[10%] ">
@@ -437,10 +529,13 @@ export default function ShowProjects() {
                 </figure>
               </div>
             </Link>
-            <div className="lg:hidden w-full  h-screen  flex flex-col justify-start gap-3 pl-[3%] py-5">
+            <div
+              className="lg:hidden w-full  h-screen  flex flex-col justify-start gap-3 pl-[3%] py-5 "
+              data-mobile-section
+            >
               <h4
-                ref={sectionNameRef}
-                className="text-2xl flex justify-start gap-5  items-center"
+                ref={sectionNameRef2}
+                className="text-2xl flex justify-start gap-5  items-center mobile-title"
               >
                 {section.name}{" "}
                 <div
@@ -462,14 +557,14 @@ export default function ShowProjects() {
                   />
                 </Link>
               </h4>
-              <p ref={descriptionRef} className="text-gray-400 my-3">
+              <p  className="text-gray-400 my-3 section-description-moblie">
                 {section.description}
               </p>
               <ul ref={featureUlRef}>
                 {section.feature.values.map((item, i) => (
                   <li
                     key={i}
-                    className="flex justify-start items-center gap-3 mb-2 text-gray-300"
+                    className="flex justify-start items-center gap-3 mb-2 text-gray-300 mobileLi"
                   >
                     <FourWayArrowIcon
                       fill={section.color}
