@@ -1,6 +1,6 @@
 # 🧑‍💻 Frontend Developer Portfolio: Mohammad Emami
 
-This is my personal portfolio, developed to showcase my technical skills as a Frontend Developer, my creativity in User Interface (UI) and User Experience (UX) design, and my ability to implement complex animations. This interactive resume places a special emphasis on high performance and responsive design.
+This is my personal portfolio, developed to showcase my technical skills as a Frontend Developer, my creativity in User Interface (UI) and User Experience (UX) design, and my ability to implement complex animations. This interactive resume places a special emphasis on high performance and responsive design. 
 
 ---
 
