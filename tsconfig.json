@@ -29,6 +29,6 @@
     ".next/types/**/*.ts",
     ".next/dev/types/**/*.ts",
     "**/*.mts"
-, "src/app/components/projects", "public/next-sitemap.config.js"  ],
+, "src/app/components/projects", "next-sitemap.config.js"  ],
   "exclude": ["node_modules"]
 }
